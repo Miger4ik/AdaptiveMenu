@@ -1,10 +1,33 @@
 package com.example.adaptivemenu.drinks;
 
-public interface Beverage {
+public abstract class Beverage {
 
-    String getDescription();
+    protected double smallCost = 0;
+    protected double mediumCost = 0;
+    protected double largeCost = 0;
 
-    double cost();
+    protected String description = "Unknown Beverage";
+    protected Size size = Size.SMALL;
+
+    public abstract double cost();
+
+    public void setCost(double smallCost, double mediumCost, double largeCost) {
+        this.smallCost = smallCost;
+        this.mediumCost = mediumCost;
+        this.largeCost = largeCost;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setSize(Size size) {
+        this.size = size;
+    }
+
+    public Size getSize() {
+        return this.size;
+    }
 }
 
 /*
@@ -34,3 +57,5 @@ public interface Beverage {
 після виконання даного коду в змінній espresso
 буде знаходитись еспрессо з молоком, двійним шоколадом та кремом
 */
+
+// TODO додати різні за розміром порції

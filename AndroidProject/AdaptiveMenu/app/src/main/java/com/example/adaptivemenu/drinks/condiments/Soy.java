@@ -3,15 +3,30 @@ package com.example.adaptivemenu.drinks.condiments;
 import com.example.adaptivemenu.drinks.Beverage;
 
 public class Soy extends CondimentDecorator {
-    private Beverage beverage;
-    private double cost = 0.99;
 
     public Soy() {
         this.description = "Soy";
     }
 
     public Soy(Beverage beverage) {
+        this.description = "Soy";
         this.beverage = beverage;
+    }
+
+    public Soy(Beverage beverage, double cost) {
+        this.description = "Soy";
+        this.beverage = beverage;
+        this.smallCost = cost;
+        this.mediumCost = cost;
+        this.largeCost = cost;
+    }
+
+    public Soy(Beverage beverage, double smallCost, double mediumCost, double largeCost) {
+        this.description = "Soy";
+        this.beverage = beverage;
+        this.smallCost = smallCost;
+        this.mediumCost = mediumCost;
+        this.largeCost = largeCost;
     }
 
     @Override
@@ -21,6 +36,25 @@ public class Soy extends CondimentDecorator {
 
     @Override
     public double cost() {
-        return cost + this.beverage.cost();
+        double cost = beverage.cost();
+
+        switch (this.beverage.getSize()) {
+            case SMALL: {
+                cost += smallCost;
+                break;
+            }
+
+            case MEDIUM: {
+                cost += mediumCost;
+                break;
+            }
+
+            case LARGE: {
+                cost += largeCost;
+                break;
+            }
+        }
+
+        return cost;
     }
 }
