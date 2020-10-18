@@ -10,20 +10,6 @@ public abstract class CondimentDecorator extends Beverage {
     public abstract String getDescription();
 
     @Override
-    public double cost() {
-        switch (this.getSize()) {
-            case SMALL:
-                return this.smallCost;
-            case MEDIUM:
-                return this.mediumCost;
-            case LARGE:
-                return this.largeCost;
-            default:
-                return 0;
-        }
-    }
-
-    @Override
     public Size getSize() {
         return this.beverage.getSize();
     }

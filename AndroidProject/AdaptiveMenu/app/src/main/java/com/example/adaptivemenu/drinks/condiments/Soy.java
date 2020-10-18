@@ -1,37 +1,21 @@
 package com.example.adaptivemenu.drinks.condiments;
 
 import com.example.adaptivemenu.drinks.Beverage;
+import com.example.adaptivemenu.drinks.Descriptions;
+import com.example.adaptivemenu.drinks.PriceList;
 
 public class Soy extends CondimentDecorator {
 
     public Soy() {
-        this.description = "Soy";
     }
 
     public Soy(Beverage beverage) {
-        this.description = "Soy";
         this.beverage = beverage;
-    }
-
-    public Soy(Beverage beverage, double cost) {
-        this.description = "Soy";
-        this.beverage = beverage;
-        this.smallCost = cost;
-        this.mediumCost = cost;
-        this.largeCost = cost;
-    }
-
-    public Soy(Beverage beverage, double smallCost, double mediumCost, double largeCost) {
-        this.description = "Soy";
-        this.beverage = beverage;
-        this.smallCost = smallCost;
-        this.mediumCost = mediumCost;
-        this.largeCost = largeCost;
     }
 
     @Override
     public String getDescription() {
-        return this.beverage.getDescription() + ", " + this.description;
+        return this.beverage.getDescription() + ", " + Descriptions.SOY_DESCRIPTION;
     }
 
     @Override
@@ -40,17 +24,17 @@ public class Soy extends CondimentDecorator {
 
         switch (this.beverage.getSize()) {
             case SMALL: {
-                cost += smallCost;
+                cost += PriceList.SMALL_SOY_PRICE;
                 break;
             }
 
             case MEDIUM: {
-                cost += mediumCost;
+                cost += PriceList.MEDIUM_SOY_PRICE;
                 break;
             }
 
             case LARGE: {
-                cost += largeCost;
+                cost += PriceList.LARGE_SOY_PRICE;
                 break;
             }
         }

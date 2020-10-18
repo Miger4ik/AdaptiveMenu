@@ -1,21 +1,10 @@
 package com.example.adaptivemenu.drinks;
 
 public abstract class Beverage {
-
-    protected double smallCost = 0;
-    protected double mediumCost = 0;
-    protected double largeCost = 0;
-
-    protected String description = "Unknown Beverage";
+    protected String description = "unknown beverage";
     protected Size size = Size.SMALL;
 
     public abstract double cost();
-
-    public void setCost(double smallCost, double mediumCost, double largeCost) {
-        this.smallCost = smallCost;
-        this.mediumCost = mediumCost;
-        this.largeCost = largeCost;
-    }
 
     public String getDescription() {
         return this.description;

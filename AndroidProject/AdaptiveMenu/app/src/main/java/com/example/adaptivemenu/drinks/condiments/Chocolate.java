@@ -1,38 +1,22 @@
 package com.example.adaptivemenu.drinks.condiments;
 
 import com.example.adaptivemenu.drinks.Beverage;
+import com.example.adaptivemenu.drinks.Descriptions;
+import com.example.adaptivemenu.drinks.PriceList;
 import com.example.adaptivemenu.drinks.Size;
 
 public class Chocolate extends CondimentDecorator {
 
     public Chocolate() {
-        this.description = "Chocolate";
     }
 
     public Chocolate(Beverage beverage) {
-        this.description = "Chocolate";
         this.beverage = beverage;
-    }
-
-    public Chocolate(Beverage beverage, double cost) {
-        this.description = "Chocolate";
-        this.beverage = beverage;
-        this.smallCost = cost;
-        this.mediumCost = cost;
-        this.largeCost = cost;
-    }
-
-    public Chocolate(Beverage beverage, double smallCost, double mediumCost, double largeCost) {
-        this.description = "Chocolate";
-        this.beverage = beverage;
-        this.smallCost = smallCost;
-        this.mediumCost = mediumCost;
-        this.largeCost = largeCost;
     }
 
     @Override
     public String getDescription() {
-        return this.beverage.getDescription() + ", " + this.description;
+        return this.beverage.getDescription() + ", " + Descriptions.CHOCOLATE_DESCRIPTION;
     }
 
     @Override
@@ -41,17 +25,17 @@ public class Chocolate extends CondimentDecorator {
 
         switch (this.beverage.getSize()) {
             case SMALL: {
-                cost += smallCost;
+                cost += PriceList.SMALL_CHOCOLATE_PRICE;
                 break;
             }
 
             case MEDIUM: {
-                cost += mediumCost;
+                cost += PriceList.MEDIUM_CHOCOLATE_PRICE;
                 break;
             }
 
             case LARGE: {
-                cost += largeCost;
+                cost += PriceList.LARGE_CHOCOLATE_PRICE;
                 break;
             }
         }
