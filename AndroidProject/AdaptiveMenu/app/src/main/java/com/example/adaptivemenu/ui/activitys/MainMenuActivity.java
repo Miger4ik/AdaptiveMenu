@@ -1,4 +1,4 @@
-package com.example.adaptivemenu.ui;
+package com.example.adaptivemenu.ui.activitys;
 
 import android.os.Bundle;
 import android.view.View;
